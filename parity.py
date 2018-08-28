@@ -31,7 +31,7 @@ def parity_lookup(num):
 
 def parity(x):
     result = 0
-    while (x):
+    while x:
         result += parity_lookup(x & 0xf)
         x >>= 4
     return result
