@@ -22,20 +22,19 @@ h = {
 
 def parity_lookup(num):
     """
-    Using a small hash for 4 bits - 16 values
-    :param num - take LSB 4 bits
+    Using a small hash for 4 bits - 16 values - and predetermined parity
+    :param num - 4 bits
     :return:
     """
-    num = num & 0xf  # TODO: Can be removed
     return h[num]
 
 
 def parity(x):
-    parity = 0
+    result = 0
     while (x):
-        partity += x & 0xf
-    # TODO - you fill in here.
-    return 0
+        result += parity_lookup(x & 0xf)
+        x >>= 4
+    return result
 
 
 if __name__ == '__main__':
