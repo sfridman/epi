@@ -32,7 +32,7 @@ def parity_lookup(num):
 def parity(x):
     result = 0
     while x:
-        result += parity_lookup(x & 0xf)
+        result ^= parity_lookup(x & 0xf)  # Optimize storage to 1 bit
         x >>= 4
     return result
 
